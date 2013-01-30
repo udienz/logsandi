@@ -1,5 +1,7 @@
 #!/bin/bash
 
+git pull origin master
+
 BASE=$HOME/logsandi/
 
 sed -e '/sshd\[[0-9]*\]: Failed password/!d' \
@@ -21,3 +23,7 @@ while read count host
 		fi
 	fi
 done
+
+git add *
+git commit -m "autocommit at $(hostname)"
+git push origin master
